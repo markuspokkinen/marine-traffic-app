@@ -14,6 +14,7 @@ export default class App extends Component {
         this.timer = setInterval(() => this.getdata(), 120000);
     }
     getdata = () => {
+        console.log("updated")
         fetch("https://meri.digitraffic.fi/api/v1/locations/latest")
             .then(res => res.json())
             .then(response => {

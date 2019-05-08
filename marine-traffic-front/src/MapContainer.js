@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import InfoWindowsChild, { InfoWindowChild } from './InfoWindowChild';
+import InfoWindowChild from './InfoWindowChild';
 
 export class MapContainer extends Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 
-export class InfoWindowChild extends Component {
+export default class InfoWindowChild extends Component {
 
     render() {
         const postype = [
