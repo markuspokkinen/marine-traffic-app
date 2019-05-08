@@ -6,12 +6,12 @@ export default class App extends Component {
         super(props);
         this.state = {
             features: [],
-            status:""
+            status: ""
         }
     }
     componentDidMount() {
         this.getdata();
-        this.timer = setInterval(() => this.getdata(), 120000);
+        this.timer = setInterval(() => this.getdata(), 60000);
     }
     getdata = () => {
         console.log("updated")
@@ -20,23 +20,19 @@ export default class App extends Component {
             .then(response => {
                 this.setState({
                     features: response.features,
-                    status:"Ok"
+                    status: "Ok"
                 })
             })
     }
     render() {
         if (this.state.status === "Ok") {
             return (
-                <div className="App" >
-                    <MapContainer data={this.state.features} />
-                </div>
+                <MapContainer data={this.state.features} />
             );
         } else {
             return (
-                <div className="App">
-                    <p>Loading Data</p>
-                </div>
-                )
+                <p>Loading Data</p>
+            );
         }
     }
 }
