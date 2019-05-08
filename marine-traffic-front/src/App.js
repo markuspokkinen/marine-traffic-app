@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GoogleMap from './MapContainer';
+import MapContainer from './MapContainer';
 
 export default class App extends Component {
     constructor(props) {
@@ -27,12 +27,12 @@ export default class App extends Component {
         if (this.state.status === "Ok") {
             return (
                 <div className="App" >
-                    <GoogleMap data={this.state.features} />
+                    <MapContainer data={this.state.features} />
                 </div>
             );
         } else {
             return (
-                <div>
+                <div className="App">
                     <p>Loading Data</p>
                 </div>
                 )

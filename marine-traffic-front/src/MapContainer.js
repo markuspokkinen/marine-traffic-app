@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import InfoWindowsChild, { InfoWindowChild } from './InfoWindowChild';
 
 export class MapContainer extends Component {
     constructor(props) {
@@ -7,18 +8,24 @@ export class MapContainer extends Component {
         this.state = {
             activeMarker: {},
             showingInfoWindow: false,
-            InfoWindowCild:""
+            InfoWindowCild: ""
         }
     }
 
     onMarkerClick(props, marker, e) {
-        //console.log(marker.data);
-        this.setState({
-            activeMarker: marker,
-            showingInfoWindow: true,
-            InfoWindowCild: <p> mmsi: {marker.data.mmsi}</p>
+     //   console.log(marker.data);
+        fetch("https://meri.digitraffic.fi/api/v1/metadata/vessels/" + marker.data.mmsi)
+            .then(res => res.json())
+            .then(response => {
+                //console.log(response);
+                this.setState({
+                    activeMarker: marker,
+                    showingInfoWindow: true,
+                    InfoWindowCild: <InfoWindowChild response={response} marker={marker.data} />
 
-        })
+                })
+            })
+
     }
     render() {
 
