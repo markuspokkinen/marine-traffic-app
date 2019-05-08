@@ -1,0 +1,9 @@
+{
+  "name": "marine-traffic-backend",
+  "version": "0.0.0",
+  "description": "marine-traffic backend",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
